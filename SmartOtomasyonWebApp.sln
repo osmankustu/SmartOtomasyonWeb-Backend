@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{90D3655A-95B8-4F1B-BE88-44532E2D8488}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{43537198-FEC9-4D40-9F6C-2E7DFF34035F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartOtomasyonWebApp.Domain", "src\Core\SmartOtomasyonWebApp.Domain\SmartOtomasyonWebApp.Domain.csproj", "{60C80A8C-7609-4137-80D8-168CCEDCAB12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartOtomasyonWebApp.Application", "src\Core\SmartOtomasyonWebApp.Application\SmartOtomasyonWebApp.Application.csproj", "{07A0C175-3813-4D72-AEF3-3DF83821553B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D0DA9BBC-FDF9-4767-889C-492B02D03987}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartOtomasyonWebApp.Persistance", "src\Infrastructure\SmartOtomasyonWebApp.Persistance\SmartOtomasyonWebApp.Persistance.csproj", "{B3A45BEE-0702-4735-8540-1A4771C72FEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebAPI", "WebAPI", "{B4DDD5C8-C104-485E-B557-3F0FEB256DB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartOtomasyonWebApp.WebAPI", "src\WebAPI\SmartOtomasyonWebApp.WebAPI\SmartOtomasyonWebApp.WebAPI.csproj", "{704B9165-6C95-406A-963C-4AB63700970E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60C80A8C-7609-4137-80D8-168CCEDCAB12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60C80A8C-7609-4137-80D8-168CCEDCAB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60C80A8C-7609-4137-80D8-168CCEDCAB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60C80A8C-7609-4137-80D8-168CCEDCAB12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07A0C175-3813-4D72-AEF3-3DF83821553B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07A0C175-3813-4D72-AEF3-3DF83821553B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07A0C175-3813-4D72-AEF3-3DF83821553B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07A0C175-3813-4D72-AEF3-3DF83821553B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3A45BEE-0702-4735-8540-1A4771C72FEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A45BEE-0702-4735-8540-1A4771C72FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A45BEE-0702-4735-8540-1A4771C72FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A45BEE-0702-4735-8540-1A4771C72FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{704B9165-6C95-406A-963C-4AB63700970E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{704B9165-6C95-406A-963C-4AB63700970E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{704B9165-6C95-406A-963C-4AB63700970E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{704B9165-6C95-406A-963C-4AB63700970E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{43537198-FEC9-4D40-9F6C-2E7DFF34035F} = {90D3655A-95B8-4F1B-BE88-44532E2D8488}
+		{60C80A8C-7609-4137-80D8-168CCEDCAB12} = {43537198-FEC9-4D40-9F6C-2E7DFF34035F}
+		{07A0C175-3813-4D72-AEF3-3DF83821553B} = {43537198-FEC9-4D40-9F6C-2E7DFF34035F}
+		{D0DA9BBC-FDF9-4767-889C-492B02D03987} = {90D3655A-95B8-4F1B-BE88-44532E2D8488}
+		{B3A45BEE-0702-4735-8540-1A4771C72FEE} = {D0DA9BBC-FDF9-4767-889C-492B02D03987}
+		{B4DDD5C8-C104-485E-B557-3F0FEB256DB4} = {90D3655A-95B8-4F1B-BE88-44532E2D8488}
+		{704B9165-6C95-406A-963C-4AB63700970E} = {B4DDD5C8-C104-485E-B557-3F0FEB256DB4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F6D317E-ED9F-49D7-BF24-A1D4AD5D0551}
+	EndGlobalSection
+EndGlobal
