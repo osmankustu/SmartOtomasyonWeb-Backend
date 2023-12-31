@@ -11,16 +11,19 @@ namespace SmartOtomasyonWebApp.Persistance.Context
 {
     public class ApplicationDbContext : DbContext
     {
-       // public DbSet<Product> Products {get;set;}
-       //NAVBAR
         public DbSet<Navbar> Navbar { get; set; }
         public DbSet<NavbarCategory> NavbarCategory { get; set; }
-        //PRODUCTS
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductsCategory { get; set; }
-        //IMAGES GALLEY
         public DbSet<WorkImages> WorkImages { get; set; }
         public DbSet<WorkImageCategory> WorkImageCategory { get; set; }
+        public DbSet<MainSlider> MainSlider { get; set; }
+        public DbSet<UpperNavbar> UpperNavbar { get; set; }
+        public DbSet<PhoneNumber> PhoneNumber { get; set; }
+        public DbSet<SocialLinks>  SocialLinks { get; set; }
+        public DbSet<About> About { get; set; }
+        public DbSet<Footer> Footer { get; set; }
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
         {
