@@ -12,5 +12,6 @@ namespace SmartOtomasyonWebApp.Domain.Entities
         public String Name { get; set; }
         public String Uri { get; set; }
         public Guid ImageCategoryId { get; set; }
+        public WorkImageCategory ImageCategory { get; set; }
     }
 }

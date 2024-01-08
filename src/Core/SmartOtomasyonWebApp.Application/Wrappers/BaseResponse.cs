@@ -6,12 +6,23 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Application.Wrappers
 {
-    public class BaseResponse
+    public class BaseResponse<T> :Result
     {
-        public Guid Id { get; set; }
-        public bool Success { get; set; }
-        public String Message { get; set; }
 
+        //public Guid Id { get; set; }
+        //public bool Success { get; set; }
+        //public String Message { get; set; }
+
+        public BaseResponse(T data,bool success,String message):base(success,message)
+        {
+            Data = data;
+        }
+        public BaseResponse(T data,bool success):base(success)
+        {
+            Data = data;
+        }
+
+        public T Data { get; set; }
 
     }
 }

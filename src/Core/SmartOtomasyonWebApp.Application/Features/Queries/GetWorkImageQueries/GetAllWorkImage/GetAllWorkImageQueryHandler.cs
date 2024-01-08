@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using SmartOtomasyonWebApp.Application.Constants;
 using SmartOtomasyonWebApp.Application.Dto.WorkImage;
 using SmartOtomasyonWebApp.Application.Interfaces.Repository;
 using SmartOtomasyonWebApp.Application.Wrappers;
@@ -23,9 +24,9 @@ namespace SmartOtomasyonWebApp.Application.Features.Queries.GetWorkImageQueries.
 
         public async Task<ServiceResponse<List<WorkImageView>>> Handle(GetAllWorkImageQuery request, CancellationToken cancellationToken)
         {
-            var list = await _workImagesRepository.GetAllAsync();
+            var list = await _workImagesRepository.JoinedGetAllAsync();
             var viewModel = _mapper.Map<List<WorkImageView>>(list);
-            return new ServiceResponse<List<WorkImageView>>(viewModel);
+            return new ServiceResponse<List<WorkImageView>>(viewModel,Messages.ImageListed);
         }
     }
 }

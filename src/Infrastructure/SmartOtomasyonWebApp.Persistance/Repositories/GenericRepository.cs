@@ -25,6 +25,12 @@ namespace SmartOtomasyonWebApp.Persistance.Repositories
             return entity;
         }
 
+        public async Task DeleteAsync(T entity)
+        {
+             dbContext.Set<T>().Remove(entity);
+            await dbContext.SaveChangesAsync();
+        }
+
         public async Task<List<T>> GetAllAsync()
         {
             return await dbContext.Set<T>().ToListAsync();
@@ -34,6 +40,13 @@ namespace SmartOtomasyonWebApp.Persistance.Repositories
         {
             return await dbContext.Set<T>().FindAsync(id);
 
+        }
+
+        public async Task UpdateAsync(T entity)
+        {
+             dbContext.Entry(entity).State = EntityState.Modified;
+             await dbContext.SaveChangesAsync();
+            
         }
     }
 }

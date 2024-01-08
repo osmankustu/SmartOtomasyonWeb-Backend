@@ -11,8 +11,7 @@ namespace SmartOtomasyonWebApp.Persistance.Context
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<Navbar> Navbar { get; set; }
-        public DbSet<NavbarCategory> NavbarCategory { get; set; }
+
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductsCategory { get; set; }
         public DbSet<WorkImages> WorkImages { get; set; }
@@ -23,6 +22,9 @@ namespace SmartOtomasyonWebApp.Persistance.Context
         public DbSet<SocialLinks>  SocialLinks { get; set; }
         public DbSet<About> About { get; set; }
         public DbSet<Footer> Footer { get; set; }
+        public DbSet<Referance> Referance { get; set; }
+        public DbSet<Page> Pages { get; set; }
+        public DbSet<Meta> Meta { get; set; }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)

@@ -11,5 +11,6 @@ namespace SmartOtomasyonWebApp.Domain.Entities
     {
         public String Name { get; set; }
         public String Phone { get; set; }
+        public Guid FooterId{ get; set; }
     }
 }

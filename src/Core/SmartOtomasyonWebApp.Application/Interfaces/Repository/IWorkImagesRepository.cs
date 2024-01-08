@@ -9,5 +9,7 @@ namespace SmartOtomasyonWebApp.Application.Interfaces.Repository
 {
     public interface IWorkImagesRepository : IGenericRepositoryAsync<WorkImages>
     {
+        public  Task<List<WorkImages>> JoinedGetAllAsync();
+        public Task<List<WorkImages>> GetByCategoryId(Guid id);
     }
 }

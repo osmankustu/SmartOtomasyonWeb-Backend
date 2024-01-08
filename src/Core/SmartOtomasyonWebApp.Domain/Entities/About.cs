@@ -10,8 +10,8 @@ namespace SmartOtomasyonWebApp.Domain.Entities
     public class About : BaseEntity
     {
         public String Title { get; set; }
-        public String SubTitle { get; set; }
         public String Description { get; set; }
         public String ImgUri { get; set; }
+        public Guid PageId { get; set; }
     }
 }

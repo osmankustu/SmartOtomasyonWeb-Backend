@@ -1,4 +1,5 @@
-﻿using SmartOtomasyonWebApp.Application.Interfaces.Repository;
+﻿using Microsoft.EntityFrameworkCore;
+using SmartOtomasyonWebApp.Application.Interfaces.Repository;
 using SmartOtomasyonWebApp.Domain.Entities;
 using SmartOtomasyonWebApp.Persistance.Context;
 using System;
@@ -13,6 +14,16 @@ namespace SmartOtomasyonWebApp.Persistance.Repositories
     {
         public AboutRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
+        }
+
+        public async Task<List<About>> GetAllAboutWithMetaAsync()
+        {
+            using (ApplicationDbContext context = new ApplicationDbContext(new DbContextOptions<ApplicationDbContext>()))
+            {
+                var result = from a in context.About select a;
+
+                return await result.ToListAsync();
+            }
         }
     }
 }

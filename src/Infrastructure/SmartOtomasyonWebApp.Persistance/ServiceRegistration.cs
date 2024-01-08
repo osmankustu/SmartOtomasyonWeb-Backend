@@ -17,11 +17,17 @@ namespace SmartOtomasyonWebApp.Persistance
         {
             serviceCollection.AddDbContext<ApplicationDbContext>(opt => opt.UseSqlServer());
             serviceCollection.AddTransient<IProductRepository, ProductRepository>();
-            serviceCollection.AddTransient<INavbarRepository,NavbarRepository>();
-            serviceCollection.AddTransient<INavbarCategoryRepository, NavbarCategoryRepository>();
             serviceCollection.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
             serviceCollection.AddTransient<IWorkImageCategoryRepository, WorkImageCategoryRepository>();
             serviceCollection.AddTransient<IWorkImagesRepository, WorkImagesRepository>();
+            serviceCollection.AddTransient<IAboutRepository, AboutRepository>();
+            serviceCollection.AddTransient<IReferanceRepository, ReferanceRepository>();
+            serviceCollection.AddTransient<IFooterRepository,FooterRepository>();
+            serviceCollection.AddTransient<ISocialLinksRepository, SocialLinksRepository>();
+            serviceCollection.AddTransient<IPhoneNumberRepository,PhoneNumberRepository>();
+            //
+            serviceCollection.AddTransient<IMetaRepository, MetaRepository>();
+            serviceCollection.AddTransient<IPagesRepository, PageRepository>();
         }
     }
 }

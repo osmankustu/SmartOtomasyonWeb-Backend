@@ -11,7 +11,7 @@ namespace SmartOtomasyonWebApp.Domain.Entities
     {
         public String Email { get; set; }
 
-        public virtual ICollection<SocialLinks>  SocialLinks { get; set; }
-        public virtual ICollection<PhoneNumber> PhoneNumbers { get; set; }
+        //public virtual ICollection<SocialLinks>  SocialLinks { get; set; }
+        //public virtual ICollection<PhoneNumber> PhoneNumbers { get; set; }
     }
 }

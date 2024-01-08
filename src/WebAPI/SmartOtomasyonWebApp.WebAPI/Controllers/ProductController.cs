@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartOtomasyonWebApp.Application.Dto;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateProduct;
+using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeleteProduct;
+using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands.UpdateProduct;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetAllProducts;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetProductById;
 using SmartOtomasyonWebApp.Application.Interfaces.Repository;
@@ -38,6 +40,19 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
         {
             var query = new GetProductByIdQuery() { Id=id };
             return Ok(await _mediator.Send(query));
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(UpdateProductCommand command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var command = new DeleteProductCommand() { Id = id };
+            return Ok(await _mediator.Send(command));
         }
     }
 }

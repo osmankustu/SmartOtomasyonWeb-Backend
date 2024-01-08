@@ -10,5 +10,6 @@ namespace SmartOtomasyonWebApp.Domain.Entities
     public class WorkImageCategory :BaseEntity
     {
         public String Name { get; set; }
+        public Guid PageId { get; set; }
     }
 }

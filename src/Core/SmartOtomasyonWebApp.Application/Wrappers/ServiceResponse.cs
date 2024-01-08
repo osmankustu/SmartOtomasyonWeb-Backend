@@ -6,13 +6,25 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Application.Wrappers
 {
-    public class ServiceResponse<T> :BaseResponse
+    public class ServiceResponse<T> :BaseResponse<T>
     {
-        public T Data { get; set; }
 
-        public ServiceResponse(T data)
+        public ServiceResponse(T data,String message):base(data,true,message)
         {
-            Data = data;
+
         }
+        public ServiceResponse(T data):base(data,true)
+        {
+
+        }
+        public ServiceResponse(String message):base(default,true)
+        {
+
+        }
+        public ServiceResponse():base(default,true)
+        {
+
+        }
+
     }
 }

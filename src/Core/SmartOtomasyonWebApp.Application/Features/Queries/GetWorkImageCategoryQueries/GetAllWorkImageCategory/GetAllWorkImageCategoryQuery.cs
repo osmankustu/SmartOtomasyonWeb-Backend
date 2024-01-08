@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using SmartOtomasyonWebApp.Application.Dto.WorkImageCategory;
+using SmartOtomasyonWebApp.Application.Dto.WorkImageCategoryDto;
 using SmartOtomasyonWebApp.Application.Wrappers;
 using System;
 using System.Collections.Generic;

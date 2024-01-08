@@ -1,4 +1,5 @@
-﻿using SmartOtomasyonWebApp.Application.Interfaces.Repository;
+﻿using Microsoft.EntityFrameworkCore;
+using SmartOtomasyonWebApp.Application.Interfaces.Repository;
 using SmartOtomasyonWebApp.Domain.Entities;
 using SmartOtomasyonWebApp.Persistance.Context;
 using System;
@@ -13,6 +14,16 @@ namespace SmartOtomasyonWebApp.Persistance.Repositories
     {
         public FooterRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
+        }
+
+        public async Task<List<Footer>> JoinedGetAllAsync()
+        {
+            using (ApplicationDbContext context = new ApplicationDbContext(new DbContextOptions<ApplicationDbContext>()))
+            {
+                var result = from nc in context.Footer.Include(i => i.SocialLinks).Include(i=>i.PhoneNumbers) select nc;
+
+                return await result.ToListAsync();
+            }
         }
     }
 }

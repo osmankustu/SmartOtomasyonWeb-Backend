@@ -11,6 +11,8 @@ namespace SmartOtomasyonWebApp.Application.Dto.ProductCategory
     {
         public Guid Id { get; set; }
         public String Name { get; set; }
+        public string ImgUri { get; set; }
+        public Guid PageId { get; set; }
         public ICollection<Domain.Entities.Product> Products { get; set; }
     }
 }
