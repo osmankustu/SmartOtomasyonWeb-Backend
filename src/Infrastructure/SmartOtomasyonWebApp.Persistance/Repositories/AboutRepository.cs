@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmartOtomasyonWebApp.Application.Aspects;
 using SmartOtomasyonWebApp.Application.Interfaces.Repository;
 using SmartOtomasyonWebApp.Domain.Entities;
 using SmartOtomasyonWebApp.Persistance.Context;
@@ -10,15 +11,14 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Persistance.Repositories
 {
-    public class AboutRepository : GenericRepository<About>, IAboutRepository
+    
+    public class AboutRepository : GenericRepository<About,ApplicationDbContext> ,IAboutRepository
     {
-        public AboutRepository(ApplicationDbContext dbContext) : base(dbContext)
+       
+        
+        public async Task<List<About>> GetAllAboutPublicAsync()
         {
-        }
-
-        public async Task<List<About>> GetAllAboutWithMetaAsync()
-        {
-            using (ApplicationDbContext context = new ApplicationDbContext(new DbContextOptions<ApplicationDbContext>()))
+            using (ApplicationDbContext context = new ApplicationDbContext())
             {
                 var result = from a in context.About select a;
 

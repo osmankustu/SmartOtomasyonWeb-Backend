@@ -10,15 +10,13 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Persistance.Repositories
 {
-    public class ProductCategoryRepository : GenericRepository<ProductCategory>, IProductCategoryRepository
+    public class ProductCategoryRepository : GenericRepository<ProductCategory,ApplicationDbContext>, IProductCategoryRepository
     {
-        public ProductCategoryRepository(ApplicationDbContext dbContext) : base(dbContext)
-        {
-        }
+      
 
-        public async Task<List<ProductCategory>> JoinedProductCategoryAsync()
+        public async Task<List<ProductCategory>> GetAllPublicAsync()
         {
-            using (ApplicationDbContext context = new ApplicationDbContext(new Microsoft.EntityFrameworkCore.DbContextOptions<ApplicationDbContext>()))
+            using (ApplicationDbContext context = new ApplicationDbContext())
             {
                 var result = from i in context.ProductsCategory.Include(i => i.Products) select i;
                 

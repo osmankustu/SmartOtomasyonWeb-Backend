@@ -1,12 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SmartOtomasyonWebApp.Application.Features.Commands.AboutCommands;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateAbout;
-using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeleteAbout;
-using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands.UpdateAbout;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetAboutQueries.GetAllAbout;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetAboutQueries.GetByIdAAbout;
-using SmartOtomasyonWebApp.Application.Features.Queries.PublicQueries;
+using SmartOtomasyonWebApp.Application.Features.Queries.GetAboutQueries;
 
 namespace SmartOtomasyonWebApp.WebAPI.Controllers
 {
@@ -53,12 +50,7 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
             return Ok(await _mediator.Send(command));
         }
 
-        [HttpGet("public")]
-        public async Task<IActionResult> GetAllPublic()
-        {
-            var query = new GetAllPublicAboutQuery();
-            return Ok(await _mediator.Send(query));
-        }
+       
 
     }
 }

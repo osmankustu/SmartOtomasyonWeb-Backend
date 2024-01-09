@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateCommands.CreatePage;
-using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeletePage;
-using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands.UpdatePage;
+using SmartOtomasyonWebApp.Application.Features.Commands.PageCommands;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetPageQueries;
 using SmartOtomasyonWebApp.Application.Features.Queries.PublicQueries;
 

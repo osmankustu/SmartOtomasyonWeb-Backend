@@ -48,7 +48,13 @@ namespace SmartOtomasyonWebApp.Application.Constants
         public static String ProductUpdaded = "Ürün Güncellendi";
         public static String ProductListed = "Ürünler Listelendi";
         //
-       
+
+        public static String AuthorizationDenied = "Bu İşlem İçin Yetkiniz Yoktur !";
+        public static String UserNotFound = "Kullanıcı Bulunamadı";
+        public static String UserNonActive = "Kullanıcı Aktif Değil";
+        public static String WrongPassword = "Hatalı Şifre !";
+        public static String LoginSuccessful = "Giriş Başarılı";
+
 
     }
 }

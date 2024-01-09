@@ -9,7 +9,11 @@ namespace SmartOtomasyonWebApp.Application.Interfaces.Repository
 {
     public interface IProductRepository : IGenericRepositoryAsync<Product>
     {
-        public  Task<List<Product>> JoinedProductsAsync();
-       
+        public Task<List<Product>> GetAllPublicAsync();
+        public Task<Product> GetByIdPublicAsync(Guid id);
+        public Task<List<Product>> GetByCategoryIdAsync(Guid id);
+
+
+
     }
 }

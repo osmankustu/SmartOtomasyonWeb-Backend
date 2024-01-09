@@ -2,10 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateCommands.CreatePhoneNumber;
-using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeletePhoneNumber;
-using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands.UpdatePhoneNumber;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetPhoneNumberQueries.GetAllPhoneNumber;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetPhoneNumberQueries.GetByIdPhoneNumber;
+
+using SmartOtomasyonWebApp.Application.Features.Commands.PhoneNumberCommands;
+using SmartOtomasyonWebApp.Application.Features.Queries.GetPhoneNumberQueries;
 
 namespace SmartOtomasyonWebApp.WebAPI.Controllers
 {

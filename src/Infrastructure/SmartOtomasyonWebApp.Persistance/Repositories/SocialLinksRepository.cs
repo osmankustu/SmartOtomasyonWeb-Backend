@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Persistance.Repositories
 {
-    public class SocialLinksRepository : GenericRepository<SocialLinks>, ISocialLinksRepository
+    public class SocialLinksRepository : GenericRepository<SocialLinks,ApplicationDbContext>, ISocialLinksRepository
     {
-        public SocialLinksRepository(ApplicationDbContext dbContext) : base(dbContext)
-        {
-        }
+        
     }
 }

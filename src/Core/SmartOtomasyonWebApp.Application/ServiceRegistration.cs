@@ -11,11 +11,13 @@ namespace SmartOtomasyonWebApp.Application
 {
     public static class ServiceRegistration 
     {
+
         public static void AddApplicationRegistiraiton(this IServiceCollection services)
         {
             var assm = Assembly.GetExecutingAssembly();
             services.AddAutoMapper(assm);
             services.AddMediatR(assm);
         }
+       
     }
 }

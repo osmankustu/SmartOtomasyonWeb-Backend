@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateCommands.CreateMeta;
-using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeleteMeta;
-using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands;
+using SmartOtomasyonWebApp.Application.Features.Commands.MetaCommands;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetMetaQueries;
 
 namespace SmartOtomasyonWebApp.WebAPI.Controllers

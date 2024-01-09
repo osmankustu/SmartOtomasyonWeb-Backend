@@ -1,4 +1,4 @@
-﻿using SmartOtomasyonWebApp.Domain.Common;
+﻿    using SmartOtomasyonWebApp.Domain.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +11,6 @@ namespace SmartOtomasyonWebApp.Domain.Entities
     {
         public String Name { get; set; }
         public String Uri { get; set; }
+        public Guid HomeId { get; set; }
     }
 }

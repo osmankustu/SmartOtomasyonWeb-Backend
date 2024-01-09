@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateProductCategory;
-using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeleteProductCategory;
-using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands.UpdateProductCategory;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetProductCategoryQueries.GetAllProductCategory;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetProductCategoryQueries.GetByIdProductCategory;
+using SmartOtomasyonWebApp.Application.Features.Commands.ProductCategoryCommands;
+using SmartOtomasyonWebApp.Application.Features.Queries.GetProductCategoryQueries;
+using SmartOtomasyonWebApp.Application.Features.Queries.PublicQueries;
+using SmartOtomasyonWebApp.Application.Features.Queries.PublicQueries.GetByIdQuery;
 
 namespace SmartOtomasyonWebApp.WebAPI.Controllers
 {
@@ -52,5 +52,8 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
         {
             return Ok(await _mediator.Send(command));
         }
+
+
+
     }
 }

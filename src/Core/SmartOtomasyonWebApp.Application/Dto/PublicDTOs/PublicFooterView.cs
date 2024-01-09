@@ -9,11 +9,9 @@ namespace SmartOtomasyonWebApp.Application.Dto.PublicDTOs
 {
     public class PublicFooterView
     {
-        public Guid Id { get; set; }
         public String Name { get; set; }
         public String Adress { get; set; }
         public String Mail { get; set; }
-        public DateTime CreateAt { get; set; }
         public Guid pageId { get; set; }
 
 

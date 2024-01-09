@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Application.Features.Queries.GetMetaQueries
 {
-    public class GetByIdMetaQuery : IRequest<ServiceResponse<MetaView>>
+    public class GetByIdMetaQuery : IRequest<SuccessServiceResponse<MetaView>>
     {
         public Guid Id { get; set; }
-        public class GetByIdMetaQueryHandler : IRequestHandler<GetByIdMetaQuery, ServiceResponse<MetaView>>
+        public class GetByIdMetaQueryHandler : IRequestHandler<GetByIdMetaQuery, SuccessServiceResponse<MetaView>>
         {
             IMetaRepository _metaRepository;
             private readonly IMapper _mapper;
@@ -24,11 +24,11 @@ namespace SmartOtomasyonWebApp.Application.Features.Queries.GetMetaQueries
                 _mapper = mapper;
             }
 
-            public async Task<ServiceResponse<MetaView>> Handle(GetByIdMetaQuery request, CancellationToken cancellationToken)
+            public async Task<SuccessServiceResponse<MetaView>> Handle(GetByIdMetaQuery request, CancellationToken cancellationToken)
             {
                 var metas = await _metaRepository.GetByIdAsync(request.Id);
                 var viewModel = _mapper.Map<MetaView>(metas);
-                return new ServiceResponse<MetaView>(viewModel);
+                return new SuccessServiceResponse<MetaView>(viewModel);
             }
         }
     }

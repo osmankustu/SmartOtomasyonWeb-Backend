@@ -2,10 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateFooter;
-using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeleteFooter;
-using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands.UpdateFooter;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetFooterQueries.GetAllFooter;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetFooterQueries.GetByIdFooter;
+using SmartOtomasyonWebApp.Application.Features.Commands.FooterCommands;
+using SmartOtomasyonWebApp.Application.Features.Queries.GetFooterQueries;
+using SmartOtomasyonWebApp.Application.Features.Queries.PublicQueries;
 
 namespace SmartOtomasyonWebApp.WebAPI.Controllers
 {
@@ -50,6 +49,8 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
             var command = new DeleteFooterCommand() { Id= id };
             return Ok(await _mediator.Send(command));
         }
+
+       
 
     }
 }

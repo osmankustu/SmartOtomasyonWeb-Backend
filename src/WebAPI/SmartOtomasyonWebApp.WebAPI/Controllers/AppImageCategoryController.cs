@@ -1,11 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SmartOtomasyonWebApp.Application.Aspects;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateWorkImageCategory;
-using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeleteWorkImageCategory;
-using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands.UpdateWorkImageCategory;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetWorkImageCategoryQueries.GetAllWorkImageCategory;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetWorkImageCategoryQueries.GetByIdWorkImageCategory;
+using SmartOtomasyonWebApp.Application.Features.Commands.WorkImageCategoryCommands;
+using SmartOtomasyonWebApp.Application.Features.Queries.GetWorkImageCategoryQueries;
 
 namespace SmartOtomasyonWebApp.WebAPI.Controllers
 {
@@ -32,7 +31,6 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
             var query = new GetByIdWorkImageCategoryQuery() { Id = id };
             return Ok(await _mediator.Send(query));
         }
-
         [HttpPost]
         public async Task<IActionResult> Add(CreateWorkImageCategoryCommand command)
         {
@@ -51,5 +49,9 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
            var command = new DeleteWorkImageCategoryCommand() { Id = id };
             return Ok(await _mediator.Send(command));
         }
+
+
+       
+
     }
 }

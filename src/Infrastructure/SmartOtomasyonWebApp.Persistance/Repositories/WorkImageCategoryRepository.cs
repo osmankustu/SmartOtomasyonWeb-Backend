@@ -1,4 +1,5 @@
-﻿using SmartOtomasyonWebApp.Application.Interfaces.Repository;
+﻿using Microsoft.EntityFrameworkCore;
+using SmartOtomasyonWebApp.Application.Interfaces.Repository;
 using SmartOtomasyonWebApp.Domain.Entities;
 using SmartOtomasyonWebApp.Persistance.Context;
 using System;
@@ -9,10 +10,15 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Persistance.Repositories
 {
-    public class WorkImageCategoryRepository : GenericRepository<WorkImageCategory>, IWorkImageCategoryRepository
+    public class WorkImageCategoryRepository : GenericRepository<WorkImageCategory, ApplicationDbContext>, IWorkImageCategoryRepository
     {
-        public WorkImageCategoryRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public async Task<List<WorkImageCategory>> GetAllPublicAsync()
         {
+            using (ApplicationDbContext context = new())
+            {
+                var result = from ic in context.WorkImageCategory select ic;
+                return await result.ToListAsync();
+            }
         }
     }
 }

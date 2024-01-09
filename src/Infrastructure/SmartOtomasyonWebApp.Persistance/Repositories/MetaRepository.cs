@@ -10,15 +10,13 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Persistance.Repositories
 {
-    public class MetaRepository : GenericRepository<Meta>, IMetaRepository
+    public class MetaRepository : GenericRepository<Meta,ApplicationDbContext>, IMetaRepository
     {
-        public MetaRepository(ApplicationDbContext dbContext) : base(dbContext)
-        {
-        }
+      
 
         public async Task<List<Meta>> GetAllWithPageAsync()
         {
-            using (ApplicationDbContext context = new ApplicationDbContext(new DbContextOptions<ApplicationDbContext>()))
+            using (ApplicationDbContext context = new ApplicationDbContext())
             {
                 var result = from m in context.Meta.Include(m => m.page) select m;
                 return await result.ToListAsync();

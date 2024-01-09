@@ -2,11 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateReferance;
-using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeleteReferance;
-using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands.UpdateReferance;
-using SmartOtomasyonWebApp.Application.Features.Queries.PublicQueries;
-using SmartOtomasyonWebApp.Application.Features.Queries.ReferanceQueries.GetAllReferance;
-using SmartOtomasyonWebApp.Application.Features.Queries.ReferanceQueries.GetByIdReferance;
+using SmartOtomasyonWebApp.Application.Features.Commands.ReferanceCommands;
+using SmartOtomasyonWebApp.Application.Features.Queries.ReferanceQueries;
 
 namespace SmartOtomasyonWebApp.WebAPI.Controllers
 {
@@ -55,11 +52,6 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
 
         }
 
-        [HttpGet("public")]
-        public async Task<IActionResult> GetAllPublic()
-        {
-            var query = new GetAllPublicReferanceQuery();
-            return Ok(await _mediator.Send(query));
-        }
+        
     }
 }

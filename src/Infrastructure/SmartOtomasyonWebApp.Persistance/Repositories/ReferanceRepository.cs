@@ -10,15 +10,13 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Persistance.Repositories
 {
-    public class ReferanceRepository : GenericRepository<Referance>, IReferanceRepository
+    public class ReferanceRepository : GenericRepository<Referance,ApplicationDbContext>, IReferanceRepository
     {
-        public ReferanceRepository(ApplicationDbContext dbContext) : base(dbContext)
-        {
-        }
+       
 
         public async Task<List<Referance>> GetAllReferanceWithMeta()
         {
-            using (ApplicationDbContext context = new ApplicationDbContext(new DbContextOptions<ApplicationDbContext>()))
+            using (ApplicationDbContext context = new ApplicationDbContext())
             {
                 var result = from r in context.Referance select r;
                 return await result.ToListAsync();

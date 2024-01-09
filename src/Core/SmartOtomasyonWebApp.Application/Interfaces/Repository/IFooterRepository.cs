@@ -9,6 +9,6 @@ namespace SmartOtomasyonWebApp.Application.Interfaces.Repository
 {
     public interface IFooterRepository :IGenericRepositoryAsync<Footer>
     {
-        public Task<List<Footer>> JoinedGetAllAsync();
+        public Task<List<Footer>> GetAllPublicAsync();
     }
 }

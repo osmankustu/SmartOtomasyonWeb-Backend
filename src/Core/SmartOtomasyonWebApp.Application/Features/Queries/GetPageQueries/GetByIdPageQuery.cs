@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Application.Features.Queries.GetPageQueries
 {
-    public class GetByIdPageQuery : IRequest<ServiceResponse<PageView>>
+    public class GetByIdPageQuery : IRequest<SuccessServiceResponse<PageView>>
     {
         public Guid Id { get; set; }
-        public class GetAllPageQueryHandler : IRequestHandler<GetByIdPageQuery, ServiceResponse<PageView>>
+        public class GetAllPageQueryHandler : IRequestHandler<GetByIdPageQuery, SuccessServiceResponse<PageView>>
         {
             IPagesRepository _pagesRepository;
             private readonly IMapper _mapper;
@@ -24,11 +24,11 @@ namespace SmartOtomasyonWebApp.Application.Features.Queries.GetPageQueries
                 _mapper = mapper;
             }
 
-            public async Task<ServiceResponse<PageView>> Handle(GetByIdPageQuery request, CancellationToken cancellationToken)
+            public async Task<SuccessServiceResponse<PageView>> Handle(GetByIdPageQuery request, CancellationToken cancellationToken)
             {
                 var pages = await _pagesRepository.GetByIdAsync(request.Id);
                 var viewModel = _mapper.Map<PageView>(pages);
-                return new ServiceResponse<PageView>(viewModel);
+                return new SuccessServiceResponse<PageView>(viewModel);
             }
         }
     }

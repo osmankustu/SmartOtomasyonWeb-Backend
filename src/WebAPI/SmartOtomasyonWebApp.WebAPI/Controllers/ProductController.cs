@@ -3,12 +3,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartOtomasyonWebApp.Application.Dto;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateProduct;
-using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeleteProduct;
-using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands.UpdateProduct;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetAllProducts;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetProductById;
-using SmartOtomasyonWebApp.Application.Interfaces.Repository;
-using SmartOtomasyonWebApp.Application.Wrappers;
+using SmartOtomasyonWebApp.Application.Features.Commands.ProductCommands;
+using SmartOtomasyonWebApp.Application.Features.Queries.GetProductsQueries;
+
 
 namespace SmartOtomasyonWebApp.WebAPI.Controllers
 {
@@ -29,6 +26,7 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
             var query = new GetAllProductsQuery();
            return Ok(await _mediator.Send(query));
         }
+
         [HttpPost]
         public async Task<IActionResult> Add(CreateProductCommand command)
         {
@@ -54,5 +52,9 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
             var command = new DeleteProductCommand() { Id = id };
             return Ok(await _mediator.Send(command));
         }
+
+       
+
+        
     }
 }

@@ -9,6 +9,6 @@ namespace SmartOtomasyonWebApp.Application.Interfaces.Repository
 {
     public interface IAboutRepository : IGenericRepositoryAsync<About>
     {
-        public Task<List<About>> GetAllAboutWithMetaAsync();
+        public Task<List<About>> GetAllAboutPublicAsync();
     }
 }

@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Persistance.Repositories
 {
-    public class PhoneNumberRepository : GenericRepository<PhoneNumber>, IPhoneNumberRepository
+    public class PhoneNumberRepository : GenericRepository<PhoneNumber,ApplicationDbContext>, IPhoneNumberRepository
     {
-        public PhoneNumberRepository(ApplicationDbContext dbContext) : base(dbContext)
-        {
-        }
+        
     }
 }

@@ -11,13 +11,19 @@ namespace SmartOtomasyonWebApp.Persistance.Context
 {
     public class ApplicationDbContext : DbContext
     {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-N6K9MD1;Database=SmartOtomasyonWeb;Trusted_Connection=true;TrustServerCertificate=True");
+
+            base.OnConfiguring(optionsBuilder);
+
+        }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductsCategory { get; set; }
         public DbSet<WorkImages> WorkImages { get; set; }
         public DbSet<WorkImageCategory> WorkImageCategory { get; set; }
         public DbSet<MainSlider> MainSlider { get; set; }
-        public DbSet<UpperNavbar> UpperNavbar { get; set; }
         public DbSet<PhoneNumber> PhoneNumber { get; set; }
         public DbSet<SocialLinks>  SocialLinks { get; set; }
         public DbSet<About> About { get; set; }
@@ -26,19 +32,18 @@ namespace SmartOtomasyonWebApp.Persistance.Context
         public DbSet<Page> Pages { get; set; }
         public DbSet<Meta> Meta { get; set; }
 
+        public DbSet<Home> Home { get; set; }
+        public DbSet<CenterContent> CenterContent { get; set; }
+        public DbSet<Partner> Partner { get; set; }
+        public DbSet<EndContent> EndContent { get; set; }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
-        {
+        //auth
+        public DbSet<User> User { get; set; }
+        public DbSet<OperationClaim> OperationClaim { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaim { get; set; }
 
-        }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-N6K9MD1;Database=SmartOtomasyonWeb;Trusted_Connection=true;TrustServerCertificate=True");
-           
-            base.OnConfiguring(optionsBuilder); 
-
-        }
+       
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

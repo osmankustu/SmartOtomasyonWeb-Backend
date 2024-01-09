@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmartOtomasyonWebApp.Application.Aspects;
 using SmartOtomasyonWebApp.Application.Interfaces.Repository;
 using SmartOtomasyonWebApp.Domain.Entities;
 using SmartOtomasyonWebApp.Persistance.Context;
@@ -10,15 +11,12 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Persistance.Repositories
 {
-    public class FooterRepository : GenericRepository<Footer>, IFooterRepository
+    public class FooterRepository : GenericRepository<Footer,ApplicationDbContext>, IFooterRepository
     {
-        public FooterRepository(ApplicationDbContext dbContext) : base(dbContext)
+      
+        public async Task<List<Footer>> GetAllPublicAsync()
         {
-        }
-
-        public async Task<List<Footer>> JoinedGetAllAsync()
-        {
-            using (ApplicationDbContext context = new ApplicationDbContext(new DbContextOptions<ApplicationDbContext>()))
+            using (ApplicationDbContext context = new ApplicationDbContext())
             {
                 var result = from nc in context.Footer.Include(i => i.SocialLinks).Include(i=>i.PhoneNumbers) select nc;
 

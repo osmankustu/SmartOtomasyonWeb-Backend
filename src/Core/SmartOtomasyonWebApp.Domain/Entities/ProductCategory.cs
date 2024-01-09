@@ -12,6 +12,6 @@ namespace SmartOtomasyonWebApp.Domain.Entities
         public String Name { get; set; }
         public Guid PageId { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

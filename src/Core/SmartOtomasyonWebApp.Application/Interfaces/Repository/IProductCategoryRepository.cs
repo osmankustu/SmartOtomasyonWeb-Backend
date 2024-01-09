@@ -9,6 +9,6 @@ namespace SmartOtomasyonWebApp.Application.Interfaces.Repository
 {
     public interface IProductCategoryRepository :IGenericRepositoryAsync<ProductCategory>
     {
-        public Task<List<ProductCategory>> JoinedProductCategoryAsync();
+        public Task<List<ProductCategory>> GetAllPublicAsync();
     }
 }

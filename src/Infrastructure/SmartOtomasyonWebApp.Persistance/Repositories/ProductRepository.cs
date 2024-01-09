@@ -1,4 +1,5 @@
-﻿using SmartOtomasyonWebApp.Application.Interfaces.Repository;
+﻿using Microsoft.EntityFrameworkCore;
+using SmartOtomasyonWebApp.Application.Interfaces.Repository;
 using SmartOtomasyonWebApp.Domain.Entities;
 using SmartOtomasyonWebApp.Persistance.Context;
 using System;
@@ -9,16 +10,35 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Persistance.Repositories
 {
-    public class ProductRepository : GenericRepository<Product> ,IProductRepository
+    public class ProductRepository : GenericRepository<Product,ApplicationDbContext> ,IProductRepository
     {
-        public ProductRepository(ApplicationDbContext dbContext):base(dbContext)
-        {
+      
 
+        public async Task<List<Product>> GetAllPublicAsync()
+        {
+            using (ApplicationDbContext context = new())
+            {
+                var result = from p in context.Products select p;
+                return await result.ToListAsync();
+            }
         }
 
-        public Task<List<Product>> JoinedProductsAsync()
+        public async Task<List<Product>> GetByCategoryIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            using (ApplicationDbContext context = new())
+            {
+                var result = from p in context.Products.Where(p=>p.ProductCategoryId==id) select p;
+                return await result.ToListAsync();
+            }
+        }
+
+        public async Task<Product> GetByIdPublicAsync(Guid id)
+        {
+            using (ApplicationDbContext context = new())
+            {
+                var result = from p in context.Products.Where(p=>p.Id == id) select p;
+                return await result.FirstOrDefaultAsync();
+            }
         }
     }
 }

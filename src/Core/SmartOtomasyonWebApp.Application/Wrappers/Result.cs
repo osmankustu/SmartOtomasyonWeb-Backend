@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartOtomasyonWebApp.Application.Wrappers.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Application.Wrappers
 {
-    public class Result
+    public class Result : IResponse
     {
         public Result(bool success, string message):this(success)
         {

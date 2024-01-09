@@ -2,11 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateWorkImage;
-using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeleteWorkImages;
-using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands.UpdateWorkImage;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetWorkImageQueries.GetAllWorkImage;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetWorkImageQueries.GetByCategoryIdImage;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetWorkImageQueries.GetByIdWorkImage;
+using SmartOtomasyonWebApp.Application.Features.Commands.WorkImageCommands;
+using SmartOtomasyonWebApp.Application.Features.Queries.GetWorkImageQueries;
 
 namespace SmartOtomasyonWebApp.WebAPI.Controllers
 {
@@ -34,13 +31,6 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
             return Ok(await _mediator.Send(query));
         }
 
-        [HttpGet("categoryId/{id}")]
-        public async Task<IActionResult> GetByCategoryId(Guid id)
-        {
-            var query = new GetByCategoryIdImageQuery() { categoryId = id };
-            return Ok(await _mediator.Send(query));
-        }
-
         [HttpPost]
         public async Task<IActionResult> Add(CreateWorkImageCommand command)
         {
@@ -60,10 +50,11 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
             return Ok(await _mediator.Send(command));
         }
 
-       
 
 
-        
+
+
+
 
 
 

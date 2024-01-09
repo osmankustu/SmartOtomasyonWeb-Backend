@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Application.Features.Queries.GetPageQueries
 {
-    public class GetAllPageQuery : IRequest<ServiceResponse<List<PageView>>>
+    public class GetAllPageQuery : IRequest<SuccessServiceResponse<List<PageView>>>
     {
-        public class GetAllPageQueryHandler : IRequestHandler<GetAllPageQuery,ServiceResponse<List<PageView>>>
+        public class GetAllPageQueryHandler : IRequestHandler<GetAllPageQuery,SuccessServiceResponse<List<PageView>>>
         {
             IPagesRepository _pagesRepository;
             private readonly IMapper _mapper;
@@ -23,11 +23,11 @@ namespace SmartOtomasyonWebApp.Application.Features.Queries.GetPageQueries
                 _mapper = mapper;
             }
 
-            public async Task<ServiceResponse<List<PageView>>> Handle(GetAllPageQuery request, CancellationToken cancellationToken)
+            public async Task<SuccessServiceResponse<List<PageView>>> Handle(GetAllPageQuery request, CancellationToken cancellationToken)
             {
                 var pages = await _pagesRepository.GetAllAsync();
                 var viewModel = _mapper.Map<List<PageView>>(pages);
-                return new ServiceResponse<List<PageView>>(viewModel);
+                return new SuccessServiceResponse<List<PageView>>(viewModel);
             }
         }
     }

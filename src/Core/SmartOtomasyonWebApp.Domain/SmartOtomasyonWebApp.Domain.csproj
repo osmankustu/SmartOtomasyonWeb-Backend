@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Entities\Home.cs~RF2306c549.TMP" />
+  </ItemGroup>
+
 </Project>

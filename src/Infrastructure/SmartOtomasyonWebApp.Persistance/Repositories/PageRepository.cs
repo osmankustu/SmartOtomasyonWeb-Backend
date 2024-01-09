@@ -10,15 +10,13 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Persistance.Repositories
 {
-    public class PageRepository : GenericRepository<Page>, IPagesRepository
+    public class PageRepository : GenericRepository<Page,ApplicationDbContext>, IPagesRepository
     {
-        public PageRepository(ApplicationDbContext dbContext) : base(dbContext)
-        {
-        }
+       
 
         public async Task<Page> GetPageWithMetaAsync(Guid id)
         {
-            using (ApplicationDbContext context = new ApplicationDbContext(new DbContextOptions<ApplicationDbContext>()))
+            using (ApplicationDbContext context = new ApplicationDbContext())
             {
                 var result = from p in context.Pages.Where(p => p.Id == id).Include(p => p.MetaTags) select p;
 

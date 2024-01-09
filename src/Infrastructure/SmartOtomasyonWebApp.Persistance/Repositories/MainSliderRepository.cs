@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Persistance.Repositories
 {
-    public class MainSliderRepository : GenericRepository<MainSlider>, IMainSliderRepository
+    public class MainSliderRepository : GenericRepository<MainSlider,ApplicationDbContext>, IMainSliderRepository
     {
-        public MainSliderRepository(ApplicationDbContext dbContext) : base(dbContext)
-        {
-        }
+       
     }
 }

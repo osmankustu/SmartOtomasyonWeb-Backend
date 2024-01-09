@@ -2,10 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateSocialLink;
-using SmartOtomasyonWebApp.Application.Features.Commands.DeleteCommands.DeleteSocialLink;
-using SmartOtomasyonWebApp.Application.Features.Commands.UpdateCommands.UpdateSocialLink;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetSocialLinksQueries.GetAllSocialLinks;
-using SmartOtomasyonWebApp.Application.Features.Queries.GetSocialLinksQueries.GetByIdSocialLink;
+using SmartOtomasyonWebApp.Application.Features.Commands.SocialLinkCommands;
+using SmartOtomasyonWebApp.Application.Features.Queries.GetSocialLinksQueries;
 
 namespace SmartOtomasyonWebApp.WebAPI.Controllers
 {
