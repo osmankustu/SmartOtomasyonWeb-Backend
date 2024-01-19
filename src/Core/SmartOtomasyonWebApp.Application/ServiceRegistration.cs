@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using SmartOtomasyonWebApp.Application.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace SmartOtomasyonWebApp.Application
             var assm = Assembly.GetExecutingAssembly();
             services.AddAutoMapper(assm);
             services.AddMediatR(assm);
+            services.AddSingleton<IIPHelper, IPServiceExtension>();
         }
        
     }

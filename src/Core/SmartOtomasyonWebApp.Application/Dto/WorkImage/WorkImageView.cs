@@ -14,6 +14,7 @@ namespace SmartOtomasyonWebApp.Application.Dto.WorkImage
         public String Name { get; set; }
         public String Uri { get; set; }
         public Guid ImageCategoryId { get; set; }
+        public System.Nullable<Guid> HomeId { get; set; }
         public WorkImageCategory ImageCategory { get; set; }
 
     }

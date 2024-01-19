@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using SmartOtomasyonWebApp.Application.Constants;
+using SmartOtomasyonWebApp.Application.Extensions;
 using SmartOtomasyonWebApp.Application.Interfaces.Repository;
 using SmartOtomasyonWebApp.Application.Utilities.Security.Hashing;
 using SmartOtomasyonWebApp.Application.Utilities.Security.JWT;
@@ -23,14 +24,17 @@ namespace SmartOtomasyonWebApp.Application.Features.Commands.CreateCommands.Crea
         {
             IUserRepository _userRepository;
             ITokenHelper _tokenHelper;
-            public CreateLoginCommandHandler(IUserRepository userRepository,ITokenHelper tokenHelper)
+            IIPHelper _helper;
+            public CreateLoginCommandHandler(IUserRepository userRepository,ITokenHelper tokenHelper ,IIPHelper helper)
             {
                 _userRepository = userRepository;
                 _tokenHelper = tokenHelper;
+                _helper = helper;
             }
 
             public async Task<IDataResponse<AccessToken>> Handle(CreateLoginCommand request, CancellationToken cancellationToken)
             {
+                await _helper.GetIpAddress("Admin Login");
                 var userToCheck = await _userRepository.GetByMail(request.Email);
                 if(userToCheck == null)
                 {

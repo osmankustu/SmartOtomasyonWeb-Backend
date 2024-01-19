@@ -36,6 +36,10 @@ namespace SmartOtomasyonWebApp.Persistance.DependencyResolvers
             builder.RegisterType<CenterContentRepository>().As<ICenterContentRepository>().SingleInstance(); 
             builder.RegisterType<PartnerRepository>().As<IPartnerRepository>().SingleInstance();
             builder.RegisterType<MainSliderRepository>().As<IMainSliderRepository>().SingleInstance();
+            builder.RegisterType<VisitorsRepository>().As<IVisitorsRepository>().SingleInstance();
+            builder.RegisterType<MailBoxRepository>().As<IMailBoxRepository>().SingleInstance();
+            builder.RegisterType<DocumentCategoryRepository>().As<IDocumentCategoryRepository>().SingleInstance();
+            builder.RegisterType<DocumentRepository>().As<IDocumentRepository>().SingleInstance();
 
 
 

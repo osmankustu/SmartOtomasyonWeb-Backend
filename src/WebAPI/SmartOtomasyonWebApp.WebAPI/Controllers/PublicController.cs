@@ -1,6 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SmartOtomasyonWebApp.Application.Features.PublicCommands;
+using SmartOtomasyonWebApp.Application.Features.PublicQueries;
+using SmartOtomasyonWebApp.Application.Features.PublicQueries.GetByIdQuery;
 using SmartOtomasyonWebApp.Application.Features.Queries.PublicQueries;
 using SmartOtomasyonWebApp.Application.Features.Queries.PublicQueries.GetByIdQuery;
 
@@ -94,5 +97,33 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
             var query = new GetByCategoryIdPublicProductQuery() { Id = id };
             return Ok(await _mediator.Send(query));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> addMail(CreateMailCommands command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
+
+        [HttpGet("documentCategory")]
+        public async Task<IActionResult> GetAllDocumentCategoryPublic()
+        {
+            var query = new GetAllPublicDocumentCategoryQuery();
+            return Ok(await _mediator.Send(query));
+        }
+
+        [HttpGet("document")]
+        public async Task<IActionResult> GetAllDocumenPublic()
+        {
+            var query = new GetAllPublicDocumentQuery();
+            return Ok(await _mediator.Send(query));
+        }
+
+        [HttpGet("document/category/{id}")]
+        public async Task<IActionResult> GetByCategoryIdPDocumentPublic(Guid id)
+        {
+            var query = new GetByCategoryIdDocumentQuery() { Id = id };
+            return Ok(await _mediator.Send(query));
+        }
+
     }
 }

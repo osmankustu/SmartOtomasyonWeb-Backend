@@ -6,6 +6,7 @@ using SmartOtomasyonWebApp.Application.Wrappers;
 using SmartOtomasyonWebApp.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace SmartOtomasyonWebApp.Application.Features.Commands.CreateWorkImage
         public String Name { get; set; }
         public String Uri { get; set; }
         public Guid ImageCategoryId { get; set; }
+        public System.Nullable<Guid> HomeId { get; set; }
 
         public class CreateWorkImageCommandHandler : IRequestHandler<CreateWorkImageCommand, SuccessServiceResponse<Guid>>
         {

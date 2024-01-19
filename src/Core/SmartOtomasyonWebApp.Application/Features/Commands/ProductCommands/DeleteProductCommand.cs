@@ -31,7 +31,7 @@ namespace SmartOtomasyonWebApp.Application.Features.Commands.ProductCommands
             {
                 var product = _mapper.Map<Product>(request);
                 await _productRepository.DeleteAsync(product);
-                return new SuccessServiceResponse<Guid>(product.Id, Messages.ProductlDeleted);
+                return new SuccessServiceResponse<Guid>(product.Id, Messages.ProductDeleted);
             }
         }
     }

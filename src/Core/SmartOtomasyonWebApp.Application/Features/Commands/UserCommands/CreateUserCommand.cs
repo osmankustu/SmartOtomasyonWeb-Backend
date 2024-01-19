@@ -24,13 +24,15 @@ namespace SmartOtomasyonWebApp.Application.Features.Commands.CreateCommands.Crea
         public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand,SuccessServiceResponse<String>>
         {
             IUserRepository _userRepository;
+            IUserOperationClaimRepository _userOperationClaimRepository;
             ITokenHelper _tokenHelper;
             private readonly IMapper _mapper;
-            public CreateUserCommandHandler(IUserRepository userRepository,ITokenHelper tokenHelper,IMapper mapper)
+            public CreateUserCommandHandler(IUserRepository userRepository,ITokenHelper tokenHelper,IMapper mapper,IUserOperationClaimRepository userOperationClaimRepository)
             {
                 _userRepository = userRepository;
                 _tokenHelper = tokenHelper;
                 _mapper = mapper;
+               _userOperationClaimRepository = userOperationClaimRepository;
             }
 
             public async Task<SuccessServiceResponse<String>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -47,6 +49,12 @@ namespace SmartOtomasyonWebApp.Application.Features.Commands.CreateCommands.Crea
                     Status = true
                 };
                 await _userRepository.AddAsync(user);
+                var claim = new UserOperationClaim
+                {
+                    OperationClaimId = Guid.Parse("2d60f4af-1020-49fd-b04a-6e152a8725c6"),
+                    UserId = user.Id,
+                };
+                await _userOperationClaimRepository.AddAsync(claim);
                 return new SuccessServiceResponse<String>(user.Email);
             }
         }

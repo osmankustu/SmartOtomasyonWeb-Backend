@@ -18,6 +18,7 @@ namespace SmartOtomasyonWebApp.Application.Features.Commands.WorkImageCommands
         public string Name { get; set; }
         public string Uri { get; set; }
         public Guid ImageCategoryId { get; set; }
+        public System.Nullable<Guid> HomeId { get; set; }
 
         public class UpdateWorkImageCommandHandler : IRequestHandler<UpdateWorkImageCommand, SuccessServiceResponse<Guid>>
         {

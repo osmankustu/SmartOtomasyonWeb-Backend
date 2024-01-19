@@ -1,9 +1,13 @@
 ﻿using AutoMapper;
+using SmartOtomasyonWebApp.Application.Dto;
 using SmartOtomasyonWebApp.Application.Dto.About;
 using SmartOtomasyonWebApp.Application.Dto.CenterContentDto;
+using SmartOtomasyonWebApp.Application.Dto.DocumentCategoryDto;
+using SmartOtomasyonWebApp.Application.Dto.DocumentDto;
 using SmartOtomasyonWebApp.Application.Dto.EndContentDto;
 using SmartOtomasyonWebApp.Application.Dto.Footer;
 using SmartOtomasyonWebApp.Application.Dto.HomeDto;
+using SmartOtomasyonWebApp.Application.Dto.Mail;
 using SmartOtomasyonWebApp.Application.Dto.MainSliderDto;
 using SmartOtomasyonWebApp.Application.Dto.MetaDto;
 using SmartOtomasyonWebApp.Application.Dto.PageDto;
@@ -31,9 +35,12 @@ using SmartOtomasyonWebApp.Application.Features.Commands.CreateReferance;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateSocialLink;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateWorkImage;
 using SmartOtomasyonWebApp.Application.Features.Commands.CreateWorkImageCategory;
+using SmartOtomasyonWebApp.Application.Features.Commands.DocumentCategoryCommands;
+using SmartOtomasyonWebApp.Application.Features.Commands.DocumentCommands;
 using SmartOtomasyonWebApp.Application.Features.Commands.EndContentCommands;
 using SmartOtomasyonWebApp.Application.Features.Commands.FooterCommands;
 using SmartOtomasyonWebApp.Application.Features.Commands.HomeCommands;
+using SmartOtomasyonWebApp.Application.Features.Commands.MailCommands;
 using SmartOtomasyonWebApp.Application.Features.Commands.MainSliderCommands;
 using SmartOtomasyonWebApp.Application.Features.Commands.MetaCommands;
 using SmartOtomasyonWebApp.Application.Features.Commands.PageCommands;
@@ -45,11 +52,16 @@ using SmartOtomasyonWebApp.Application.Features.Commands.ReferanceCommands;
 using SmartOtomasyonWebApp.Application.Features.Commands.SocialLinkCommands;
 using SmartOtomasyonWebApp.Application.Features.Commands.WorkImageCategoryCommands;
 using SmartOtomasyonWebApp.Application.Features.Commands.WorkImageCommands;
+using SmartOtomasyonWebApp.Application.Features.PublicCommands;
+using SmartOtomasyonWebApp.Application.Features.PublicQueries.GetByIdQuery;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetAboutQueries;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetCenterContentQueries;
+using SmartOtomasyonWebApp.Application.Features.Queries.GetDocumentCategoryQueries;
+using SmartOtomasyonWebApp.Application.Features.Queries.GetDocumentQueries;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetEndContentQueries;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetFooterQueries;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetHomeQueries;
+using SmartOtomasyonWebApp.Application.Features.Queries.GetMailQueries;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetMainSliderQueries;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetPartnerQueries;
 using SmartOtomasyonWebApp.Application.Features.Queries.GetPhoneNumberQueries;
@@ -173,6 +185,24 @@ namespace SmartOtomasyonWebApp.Application.Mapping
             CreateMap<EndContent,UpdateEndContentCommand>().ReverseMap();
             CreateMap<EndContent,DeleteEndContentCommand>().ReverseMap();
             //
+            CreateMap<Visitors, VisitorsDto>().ReverseMap();
+            //
+            CreateMap<MailBox, DeleteMailCommand>().ReverseMap();
+            CreateMap<MailBox, MailView>().ReverseMap();
+            CreateMap<MailBox, GetByIdMailQuery>().ReverseMap();
+            //
+            CreateMap<DocumentCategory, DeleteDocumentCategoryCommand>().ReverseMap();
+            CreateMap<DocumentCategory, UpdateDocumentCategoryCommand>().ReverseMap();
+            CreateMap<DocumentCategory, CreateDocumentCategoryCommand>().ReverseMap();
+            CreateMap<DocumentCategory, DocumentCategoryView>().ReverseMap();
+            CreateMap<DocumentCategory, GetByIdDocumentCategoryQuery>().ReverseMap();
+            //
+            CreateMap<Document, CreateDocumentCommand>().ReverseMap();
+            CreateMap<Document, DeleteDocumentCommand>().ReverseMap();
+            CreateMap<Document,UpdateDocumentCommand>().ReverseMap();
+            CreateMap<Document, DocumentView>().ReverseMap();
+            CreateMap<Document, GetByIdDocumentQuery>().ReverseMap();
+
 
             //PUBLİC MAP
             CreateMap<Home, PublicHomeView>().ReverseMap();
@@ -185,6 +215,9 @@ namespace SmartOtomasyonWebApp.Application.Mapping
             CreateMap<Product, PublicGetByIdProductView>().ReverseMap();
             CreateMap<WorkImages, PublicImageView>().ReverseMap();
             CreateMap<WorkImageCategory,PublicImageCategoryView>().ReverseMap();
+            CreateMap<MailBox, CreateMailCommands>().ReverseMap();
+            CreateMap<Document, GetByCategoryIdDocumentQuery>().ReverseMap();
+
         }
     }
 }

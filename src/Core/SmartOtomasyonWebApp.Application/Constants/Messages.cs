@@ -39,15 +39,19 @@ namespace SmartOtomasyonWebApp.Application.Constants
         public static String SocialListed = "Sosyal Medya Listelendi";
         //
         public static String PhoneAdded = "Telefon Numarası Eklendi";
-        public static String PhonelDeleted = "Telefon Numarası Silindi";
+        public static String PhoneDeleted = "Telefon Numarası Silindi";
         public static String PhoneUpdaded = "Telefon Numarası Güncellendi";
         public static String PhonelListed = "Telefon Numarası Listelendi";
         //
         public static String ProductAdded = "Ürün Eklendi";
-        public static String ProductlDeleted = "Ürün Silindi";
+        public static String ProductDeleted = "Ürün Silindi";
         public static String ProductUpdaded = "Ürün Güncellendi";
         public static String ProductListed = "Ürünler Listelendi";
         //
+        public static String DocumentAdded = "Döküman Eklendi";
+        public static String DocumentDeleted = "Döküman Silindi";
+        public static String DocumentUpdaded = "Döküman Güncellendi";
+        public static String DocumentListed = "Dökümanlar Listelendi";
 
         public static String AuthorizationDenied = "Bu İşlem İçin Yetkiniz Yoktur !";
         public static String UserNotFound = "Kullanıcı Bulunamadı";

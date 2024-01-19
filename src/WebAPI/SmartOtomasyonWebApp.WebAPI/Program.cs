@@ -13,6 +13,7 @@ using SmartOtomasyonWebApp.Extensions;
 using SmartOtomasyonWebApp.Persistance.DependencyResolvers;
 using Microsoft.EntityFrameworkCore;
 using SmartOtomasyonWebApp.Persistance.Context;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
@@ -61,7 +62,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
-
+app.UseCors(builder => builder.WithOrigins("http://antalyasmartotomasyon.somee.com").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseCors(builder => builder.WithOrigins("http://antalyasmartotomasyon.com").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseCors(builder => builder.WithOrigins("https://antalyasmartotomasyon.somee.com").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseCors(builder => builder.WithOrigins("https://antalyasmartotomasyon.com").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
 
 app.UseHttpsRedirection();
 

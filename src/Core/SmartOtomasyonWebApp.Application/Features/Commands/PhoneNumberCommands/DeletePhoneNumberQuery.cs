@@ -30,7 +30,7 @@ namespace SmartOtomasyonWebApp.Application.Features.Commands.PhoneNumberCommands
             {
                 var number = _mapper.Map<PhoneNumber>(request);
                 await _phoneNumberRepository.DeleteAsync(number);
-                return new SuccessServiceResponse<Guid>(number.Id, Messages.PhonelDeleted);
+                return new SuccessServiceResponse<Guid>(number.Id, Messages.PhoneDeleted);
             }
         }
     }

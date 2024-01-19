@@ -16,7 +16,7 @@ namespace SmartOtomasyonWebApp.Application.Features.Commands.PartnerCommands
     {
         public Guid Id { get; set; }
 
-        public class DeletePartnerCommandHandler : IRequestHandler<CreatePartnerCommand, IDataResponse<Guid>>
+        public class DeletePartnerCommandHandler : IRequestHandler<DeletePartnerCommand, IDataResponse<Guid>>
         {
             IPartnerRepository _parnerRepository;
             private readonly IMapper _mapper;
@@ -26,7 +26,7 @@ namespace SmartOtomasyonWebApp.Application.Features.Commands.PartnerCommands
                 _mapper = mapper;
             }
 
-            public async Task<IDataResponse<Guid>> Handle(CreatePartnerCommand request, CancellationToken cancellationToken)
+            public async Task<IDataResponse<Guid>> Handle(DeletePartnerCommand request, CancellationToken cancellationToken)
             {
                 var partner = _mapper.Map<Partner>(request);
                 await _parnerRepository.DeleteAsync(partner);
