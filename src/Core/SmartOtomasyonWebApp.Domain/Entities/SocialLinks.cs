@@ -12,5 +12,6 @@ namespace SmartOtomasyonWebApp.Domain.Entities
         public String Name { get; set; }
         public String Uri { get; set; }
         public Guid FooterId { get; set; }
+        public String ClassName { get; set; }
     }
 }

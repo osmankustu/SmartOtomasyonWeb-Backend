@@ -18,6 +18,7 @@ namespace SmartOtomasyonWebApp.Application.Features.Commands.SocialLinkCommands
         public string Name { get; set; }
         public string Uri { get; set; }
         public Guid FooterId { get; set; }
+        public String ClassName { get; set; }
 
         public class UpdateSocialLinkCommandHandler : IRequestHandler<UpdateSocialLinkCommand, SuccessServiceResponse<Guid>>
         {

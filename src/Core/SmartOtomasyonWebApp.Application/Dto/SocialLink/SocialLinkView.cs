@@ -13,5 +13,6 @@ namespace SmartOtomasyonWebApp.Application.Dto.SocialLink
         public String Uri { get; set; }
         public Guid FooterId { get; set; }
         public DateTime CreateAt { get; set; }
+        public String ClassName { get; set; }
     }
 }

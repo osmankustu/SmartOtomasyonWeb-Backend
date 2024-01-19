@@ -17,6 +17,7 @@ namespace SmartOtomasyonWebApp.Application.Features.Commands.CreateSocialLink
         public String Name { get; set; }
         public String Uri { get; set; }
         public Guid FooterId { get; set; }
+        public String ClassName { get; set; }
 
         public class CreateSocialLinkCommandHandler : IRequestHandler<CreateSocialLinkCommand, SuccessServiceResponse<Guid>>
         {
