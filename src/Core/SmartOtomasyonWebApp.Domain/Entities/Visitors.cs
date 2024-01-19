@@ -13,8 +13,8 @@ namespace SmartOtomasyonWebApp.Domain.Entities
         public String CountryName { get; set; }
         public String CountryCode { get; set; }
         public String RegionName  { get; set; }
-        public decimal Longitude { get; set; }
-        public decimal Latitude { get; set; }
+        public float Longitude { get; set; }
+        public float Latitude { get; set; }
         public String Continent  { get; set; }
         public String OnContent { get; set; }
         public Boolean IsProxy { get; set; }

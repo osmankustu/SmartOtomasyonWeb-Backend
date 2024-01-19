@@ -15,8 +15,8 @@ namespace SmartOtomasyonWebApp.Application.Dto
         public String regionName { get; set; }
         public String continent { get; set; }
         public String OnContent { get; set; }
-        public decimal Longitude { get; set; }
-        public decimal Latitude { get; set; }
+        public float longitude { get; set; }
+        public float latitude { get; set; }
         public Boolean isProxy { get; set; }
         public DateTime CreateAt { get; set; }
     }

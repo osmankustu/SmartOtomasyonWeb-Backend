@@ -43,7 +43,7 @@ namespace SmartOtomasyonWebApp.Application.Extensions
             }
             if(await VisitorIsLoggedExist(result,Content))
             {
-                var url = $"https://freeipapi.com/api/json/{result}";
+                var url = $"https://freeipapi.com/api/json/31.155.253.146";
                 using (HttpClient client = new())
                 {
                     var serializerOptions = new JsonSerializerOptions
