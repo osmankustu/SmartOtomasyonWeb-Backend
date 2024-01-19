@@ -49,7 +49,7 @@ namespace SmartOtomasyonWebApp.Persistance.Repositories
         {
             using (ApplicationDbContext context = new())
             {
-                var result = from v in context.Visitors.Where(v=>v.OnContent == "Admin Login").Take(10) select v;
+                var result = from v in context.Visitors.Where(v=>v.OnContent == "Admin Login").OrderByDescending(v=>v.CreateAt).Take(10) select v;
                 return await result.ToListAsync();
                 
             }
@@ -60,7 +60,7 @@ namespace SmartOtomasyonWebApp.Persistance.Repositories
         {
             using (ApplicationDbContext context = new())
             {
-                var result = from v in context.Visitors.Where(v => v.OnContent == "Public Content").Take(5) select v;
+                var result = from v in context.Visitors.Where(v => v.OnContent == "Public Content").OrderByDescending(v=>v.CreateAt).Take(5) select v;
                 return await result.ToListAsync();
             }
         }
