@@ -55,8 +55,13 @@ namespace SmartOtomasyonWebApp.Application.Extensions
                     var res = JsonSerializer.Deserialize<VisitorsDto>(await response.Content.ReadAsStringAsync());
                     res.OnContent = Content;
                     res.CreateAt = DateTime.Now;
-                    var visitors = _mapper.Map<Visitors>(res);
-                    await _visitor.AddVisitorAsync(visitors);
+                    if(res.ipAddress != null)
+                    {
+                        var visitors = _mapper.Map<Visitors>(res);
+                        await _visitor.AddVisitorAsync(visitors);
+
+                    }
+                   
 
                 }
 

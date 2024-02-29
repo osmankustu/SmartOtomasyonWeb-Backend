@@ -50,16 +50,16 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
 
 
         [HttpGet("image")]
-        public async Task<IActionResult> GetAllImagePublic()
+        public async Task<IActionResult> GetAllImagePublic(int pageIndex=0,int pageSize=6)
         {
-            var query = new GetAllPublicImageQuery();
+            var query = new GetAllPublicImageQuery() { PageIndex=pageIndex,PageSize=pageSize};
             return Ok(await _mediator.Send(query));
         }
 
         [HttpGet("image/{id}")]
-        public async Task<IActionResult> GetImageCategoryIdPublic(Guid id)
+        public async Task<IActionResult> GetImageCategoryIdPublic(Guid id,int pageIndex=0,int pageSize=6)
         {
-            var query = new GetByCategoryIdPublicImageQuery() { Id = id };
+            var query = new GetByCategoryIdPublicImageQuery() { Id = id,PageIndex=pageIndex,PageSize=pageSize };
             return Ok(await _mediator.Send(query));
         }
 
@@ -78,10 +78,10 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
         }
 
         [HttpGet("products")]
-        public async Task<IActionResult> GetAllProductPublic()
+        public async Task<IActionResult> GetAllProductPublic(int pageIndex=0,int pageSize=6)
         {
-            var query = new GetAllPublicProductQuery();
-            return Ok(await _mediator.Send(query));
+            var query = new GetAllPublicProductQuery() { PageIndex=pageIndex,PageSize=pageSize};
+            return Ok(await _mediator.Send(query)); 
         }
 
         [HttpGet("products/{id}")]
@@ -92,9 +92,9 @@ namespace SmartOtomasyonWebApp.WebAPI.Controllers
         }
 
         [HttpGet("products/category/{id}")]
-        public async Task<IActionResult> GetByCategoryIdProductPublic(Guid id)
+        public async Task<IActionResult> GetByCategoryIdProductPublic(Guid id,int pageIndex=0,int pageSize=6)
         {
-            var query = new GetByCategoryIdPublicProductQuery() { Id = id };
+            var query = new GetByCategoryIdPublicProductQuery() { Id = id,PageIndex=pageIndex,PageSize=pageSize };
             return Ok(await _mediator.Send(query));
         }
 

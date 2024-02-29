@@ -27,17 +27,17 @@ namespace SmartOtomasyonWebApp.Application.Features.Queries.PublicQueries
         {
             IHomeRepository _homeRepository;
             private readonly IMapper _mapper;
-            IIPHelper _ipService;
+           // IIPHelper _ipService;
             public GetAllPublicHomeQueryHandler(IHomeRepository homeRepository, IMapper mapper,IIPHelper serviceHelper)
             {
                 _homeRepository = homeRepository;
                 _mapper = mapper;
-                _ipService = serviceHelper;
+               // _ipService = serviceHelper;
             }
 
             public async Task<IDataResponse<PublicHomeView>> Handle(GetAllPublicHomeQuery request, CancellationToken cancellationToken)
             {
-                await _ipService.GetIpAddress();
+               // await _ipService.GetIpAddress();
                 var homes =  _homeRepository.GetAllPublicAsync().Result.First();
                 var viewModel = _mapper.Map<PublicHomeView>(homes);
                 return new SuccessServiceResponse<PublicHomeView>(viewModel);

@@ -29,4 +29,8 @@
     <ProjectReference Include="..\SmartOtomasyonWebApp.Domain\SmartOtomasyonWebApp.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Parameters\" />
+  </ItemGroup>
+
 </Project>

@@ -10,5 +10,7 @@ namespace SmartOtomasyonWebApp.Application.Dto.PublicDTOs
     {
         public String Name { get; set; }
         public String Uri { get; set; }
+
+        public DateTime CreatedDate { get; set; }
     }
 }

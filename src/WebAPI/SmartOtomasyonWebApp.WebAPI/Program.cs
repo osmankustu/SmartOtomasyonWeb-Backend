@@ -64,8 +64,10 @@ if (app.Environment.IsDevelopment())
 app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseCors(builder => builder.WithOrigins("http://antalyasmartotomasyon.somee.com").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseCors(builder => builder.WithOrigins("http://antalyasmartotomasyon.com").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseCors(builder => builder.WithOrigins("http://admin.antalyasmartotomasyon.com").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseCors(builder => builder.WithOrigins("https://antalyasmartotomasyon.somee.com").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseCors(builder => builder.WithOrigins("https://antalyasmartotomasyon.com").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseCors(builder => builder.WithOrigins("https://admin.antalyasmartotomasyon.com").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto

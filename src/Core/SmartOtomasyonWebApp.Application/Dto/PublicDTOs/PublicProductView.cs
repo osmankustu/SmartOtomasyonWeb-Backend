@@ -11,6 +11,8 @@ namespace SmartOtomasyonWebApp.Application.Dto.PublicDTOs
         public Guid Id { get; set; }
         public String Name { get; set; }
         public String ImgUri { get; set; }
-        
+
+        public DateTime CreateAt { get; set; }
+
     }
 }

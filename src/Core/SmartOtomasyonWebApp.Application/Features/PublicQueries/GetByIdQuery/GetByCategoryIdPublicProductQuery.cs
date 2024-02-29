@@ -4,6 +4,7 @@ using SmartOtomasyonWebApp.Application.Dto.PublicDTOs;
 using SmartOtomasyonWebApp.Application.Interfaces.Repository;
 using SmartOtomasyonWebApp.Application.Wrappers;
 using SmartOtomasyonWebApp.Application.Wrappers.Abstract;
+using SmartOtomasyonWebApp.Application.Wrappers.Pagging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,12 @@ using System.Threading.Tasks;
 
 namespace SmartOtomasyonWebApp.Application.Features.Queries.PublicQueries.GetByIdQuery
 {
-    public class GetByCategoryIdPublicProductQuery : IRequest<IDataResponse<List<PublicProductView>>>
+    public class GetByCategoryIdPublicProductQuery : IRequest<PagginatedDataResponse<List<PublicProductView>>>
     {
         public Guid Id { get; set; }
-        public class GetByCategoryIdPublicProductQueryHandler : IRequestHandler<GetByCategoryIdPublicProductQuery,IDataResponse<List<PublicProductView>>>
+        public int PageIndex { get; set; }
+        public int PageSize { get; set; }
+        public class GetByCategoryIdPublicProductQueryHandler : IRequestHandler<GetByCategoryIdPublicProductQuery,PagginatedDataResponse<List<PublicProductView>>>
         {
             IProductRepository _productRepository;
             private readonly IMapper _mapper;
@@ -25,11 +28,22 @@ namespace SmartOtomasyonWebApp.Application.Features.Queries.PublicQueries.GetByI
                 _mapper = mapper;
             }
 
-            public async Task<IDataResponse<List<PublicProductView>>> Handle(GetByCategoryIdPublicProductQuery request, CancellationToken cancellationToken)
+            public async Task<PagginatedDataResponse<List<PublicProductView>>> Handle(GetByCategoryIdPublicProductQuery request, CancellationToken cancellationToken)
             {
                 var products = await _productRepository.GetByCategoryIdAsync(request.Id);
                 var viewModel = _mapper.Map<List<PublicProductView>>(products);
-                return new SuccessServiceResponse<List<PublicProductView>>(viewModel);
+
+                var totalCount = viewModel.Count;
+
+                var itemsOnPage = viewModel.OrderBy(i => i.Name)
+                    .Skip(request.PageIndex * request.PageSize)
+                    .Take(request.PageSize)
+                    .ToList();
+
+                var pageCount = (totalCount / request.PageSize) + 1;
+
+                return new PagginatedDataResponse<List<PublicProductView>>(itemsOnPage,request.PageIndex,
+                    request.PageSize,totalCount,pageCount);
             }
         }
     }
