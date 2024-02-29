@@ -14,9 +14,8 @@ namespace SmartOtomasyonWebApp.Persistance.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //local
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-N6K9MD1;Database=SmartOtomasyonWeb;Trusted_Connection=true;TrustServerCertificate=True");
+            //optionsBuilder.UseSqlServer(@"Server=DESKTOP-N6K9MD1;Database=SmartOtomasyonWeb;Trusted_Connection=true;TrustServerCertificate=True");
             //production
-            optionsBuilder.UseSqlServer(@"Server=SmartOtomasyonWeb.mssql.somee.com;Database=SmartOtomasyonWeb;user id=DEVSOFT_SQLLogin_1;pwd=fjuezb1tyi;Trusted_Connection=false;TrustServerCertificate=True");
             base.OnConfiguring(optionsBuilder);
 
         }
